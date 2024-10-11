@@ -45,16 +45,36 @@ a{
 }
 @media (max-width: 1024px) {
     .container{
-        width:768px;
+        width:950px;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 950px) {
     .container{
-        width:640px;
+        width:850px;
     }
 }
-@media (max-width: 640px) {
+@media (max-width: 850px) {
     .container{
-        width:475px;
+        width:750px;
+    }
+}
+@media (max-width: 750px) {
+    .container{
+        width:650px;
+    }
+}
+@media (max-width: 650px) {
+    .container{
+        width:550px;
+    }
+}
+@media (max-width: 550px) {
+    .container{
+        width:450px;
+    }
+}
+@media (max-width: 450px) {
+    .container{
+        width:350px;
     }
 }
