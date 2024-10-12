@@ -23,11 +23,16 @@ a{
     border: 2px solid red;
     width: 1536px;
     margin: auto;
-    padding: 0 50px;
+    padding: 0 20px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+@media (min-width: 102spx) {
+    .container{
+        width:1024px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -37,6 +42,6 @@ a{
 }
 @media (max-width: 751px) {
     .container{
-        width:400px;
+        width:350px;
     }
 }

@@ -1,4 +1,4 @@
-.container {
+.container {  
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
@@ -61,7 +61,7 @@
 /* Media query for screens smaller than 1024px */
 @media (max-width: 1024px) {
   .container {
-      width: 751px;
+      width: 700px;
       gap: 20px; 
   }
 
@@ -71,6 +71,7 @@
     width: 40%; 
   }
   .textContainer{
+    margin: 0 auto;
     width: 90%;
     gap: 10px;
   }
@@ -82,8 +83,6 @@
     margin: 0 auto 30px;    
     gap: 40px;
   }
-
-
   .img {
     object-fit: cover; /* Ensure image covers the container */
   }

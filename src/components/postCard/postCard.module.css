@@ -43,12 +43,12 @@
   }
   @media (max-width: 1024px){
     .imgContainer{
-      height: 330px;
+      height: 400px;
     }
 }
-@media (max-width: 630px){
+@media (max-width: 751px){
  
   .imgContainer{
-      height: 250px;
+      height: 300px;
   }
 }

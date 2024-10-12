@@ -1,10 +1,10 @@
 .container{
-    margin-top: 50px;
     display: flex;
     align-items: center;
     gap:15px;
     flex-wrap: wrap;
-    width: 700px;
+    width: 900px;
+    margin: 50px auto 0;
 }
 .post{
     width: 32%;
@@ -12,13 +12,17 @@
 
 @media (max-width: 1024px){
     .container{
+        width: 650px;
         gap: 30px;
     }
     .post{
         width: 47%;
     }
 }
-@media (max-width: 630px){
+@media (max-width: 751px){
+    .container{
+        width: 290px;
+    }
     .post{
         width: 100%;
     }
