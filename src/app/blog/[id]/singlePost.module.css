@@ -1,59 +1,139 @@
 .container {
-    display: flex;
-    gap: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin: 50px auto 0;
+  flex-direction: row; 
+  width: 1024px;
+}
+
+.imgContainer {
+  width: 27%;
+  position: relative; /* Needed for the Next.js Image component when using layout="fill" */
+  height: 400px; /* A fixed height for larger screens */
+}
+
+.img {
+  object-fit: cover;
+}
+
+.textContainer {
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.title {
+  font-size: 64px;
+}
+
+.detail {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.detailText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detailTitle {
+  color: gray;
+  font-weight: bold;
+}
+
+.detailValue {
+  font-weight: 500;
+}
+
+.content {
+  font-size: 20px;
+}
+
+/* Media query for screens smaller than 1024px */
+@media (max-width: 1024px) {
+  .container {
+      width: 751px;
+      gap: 20px; 
   }
-  
+
   .imgContainer {
-    flex: 1;
-    position: relative;
-    height: calc(100vh - 200px);
+    margin: 5px auto;
+    height: 450px; 
+    width: 40%; 
   }
-  
-  .img{
-    object-fit: cover;
-  }
-  
-  .textContainer {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-  }
-  
-  .title{
-    font-size: 64px;
-  }
-  
-  .detail{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-  }
-  .avatar{
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  .detailText{
-    display: flex;
-    flex-direction: column;
+  .textContainer{
+    width: 90%;
     gap: 10px;
   }
-  
-  .detailTitle{
-    color: gray;
-    font-weight: bold;
+  .title{
+    text-align: center;
   }
-  
-  .detailValue{
-    font-weight: 500;
+  .detail{
+    width: 75%;
+    margin: 0 auto 30px;    
+    gap: 40px;
   }
-  
-  .content{
-    font-size: 20px;
+
+
+  .img {
+    object-fit: cover; /* Ensure image covers the container */
   }
-  
-@media (max-width: 751px){
-    .imgContainer{
-        display: none;
-    }
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 751px) {
+  .container {
+    width: 300px;
+    gap: 10px; 
+    margin: 0;
+}
+
+.imgContainer {
+  height: 200px; 
+  width: 150px;
+}
+.textContainer{
+  width: 300px;
+  gap: 5px;
+}
+.title{
+  font-size: 34px;
+}
+.detail{
+  margin-bottom: 18px;
+  width: 300px;  
+  gap: 20px;
+  align-items: flex-start;
+}
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.detailText {
+  gap: 10px;
+}
+
+.detailTitle {
+  font-size: 8px;
+}
+
+.detailValue {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.content {
+  font-size: 12px;
+}
+
 }

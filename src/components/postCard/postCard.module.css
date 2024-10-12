@@ -41,3 +41,14 @@
   .link{
     text-decoration: underline;
   }
+  @media (max-width: 1024px){
+    .imgContainer{
+      height: 330px;
+    }
+}
+@media (max-width: 630px){
+ 
+  .imgContainer{
+      height: 250px;
+  }
+}

@@ -1,16 +1,21 @@
 .container{
-    padding: 0 20px;
+    margin-top: 50px;
     display: flex;
-    gap:30px;
+    align-items: center;
+    gap:15px;
     flex-wrap: wrap;
+    width: 700px;
 }
 .post{
-    width: 30%;
+    width: 32%;
 }
 
 @media (max-width: 1024px){
+    .container{
+        gap: 30px;
+    }
     .post{
-        width: 45%;
+        width: 47%;
     }
 }
 @media (max-width: 630px){
