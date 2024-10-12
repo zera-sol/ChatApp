@@ -45,3 +45,11 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  @media (max-width: 751px){
+    .container{
+      flex-direction: column;
+    }
+    .imgContainer{
+      display: none;
+    }
+  }

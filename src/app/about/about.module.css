@@ -34,6 +34,8 @@
   .box{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
   }
   
@@ -50,4 +52,22 @@
     object-fit: contain;
   }
   
+  @media (max-width: 751px){
+    .container{
+      flex-direction: column;
+    }
+    .imgContainer{
+      display: none;
+    }
+    .title{
+      font-size: 16px;
+    }
+    .desc{
+      font-size: 12px;
+      font-weight: 300;
+    }
+    .boxes{
+      flex-direction: column;
+    }
+  }
  

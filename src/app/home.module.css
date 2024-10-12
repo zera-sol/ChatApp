@@ -41,3 +41,36 @@
     position: relative;
     filter: grayscale(1);
 }
+@media (max-width: 751px){
+    .container{
+        flex-direction: column-reverse;
+        gap: 30px;
+        align-items: center;
+        margin: 0 auto;
+        width: 325px;
+        padding-left: 25%;
+        align-items: center;
+    }
+    .textContainer{
+        width: 320px;
+    }
+    .title{
+        font-size: 40px;
+    }
+    .desc{
+        font-size: 18px;
+        width: 270px;
+    }
+    .imageContainer{
+        display: none;
+    }
+    .brandImageContainer{
+        max-width: 80%;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .button{
+        max-width: 80%;
+    }
+}
