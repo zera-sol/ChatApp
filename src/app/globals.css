@@ -29,7 +29,7 @@ a{
     flex-direction: column;
     justify-content: space-between;
 }
-@media (min-width: 102spx) {
+@media (min-width: 1025px) {
     .container{
         width:1024px;
     }
