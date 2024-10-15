@@ -5,9 +5,10 @@ import Image from 'next/image';
 // Fetch data from the API
 const getData = async (id) => {
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      const response = await fetch(`http://localhost:3000/api/blog/${id}`, {
         method: "GET",
-      }, {catch: 'no-store'});
+        catch: 'no-store'
+      });
   
       if (!response.ok) {
         throw new Error("Something went wrong!");
@@ -19,6 +20,15 @@ const getData = async (id) => {
       return []; 
     }
   };
+  
+ export const generateMetadata = async ({params}) => {
+    const post = await getData(params.id);
+    return {
+        title: post.title,
+        description: post.body
+    }
+ }
+ 
 export default async function SingleBlogPage({params}) {
     const post = await getData(params.id)
     console.log(post.id)
