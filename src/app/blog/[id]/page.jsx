@@ -31,8 +31,7 @@ const getData = async (id) => {
  
 export default async function SingleBlogPage({params}) {
     const post = await getData(params.id)
-    console.log(post.id)
-
+    
         return (
             <div className={styles.container}>       
                 <div className={styles.imgContainer}>

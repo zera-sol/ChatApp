@@ -1,7 +1,10 @@
+"use client"
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
+import {useState, useEffect} from "react";
 
 // Fetch data from the API
+
 const getData = async () => {
   try {
     const response = await fetch("http://localhost:3000/api/blog", {
@@ -20,9 +23,14 @@ const getData = async () => {
   }
 };
 // Blogpage Component
-export default async function Blogpage() {
-  const posts = await getData(); // Await for the data
-
+export default function Blogpage() {
+  const [posts, setPosts] = useState([]); // Initialize the state to store posts
+   
+  useEffect(() => {
+    getData().then((data) => {
+      setPosts(data);
+    });
+  })
   return (
     <div className={styles.container}>
       {posts.map((post) => (
