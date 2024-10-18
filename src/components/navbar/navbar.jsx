@@ -12,6 +12,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const pathName = usePathname();
     const { data: session } = useSession(); // Get session data
+    console.log(session)
     const isAdmin = session?.user?.role === 'admin'; // Example: check if user is admin
 
     const links = [
@@ -38,14 +39,18 @@ export default function Navbar() {
                                     Admin
                                 </Link>
                             )}
-                            <button className={styles.logoutButton} onClick={() => signOut()}>Logout</button>
+                            <button className={styles.logoutButton} onClick={() => signOut({callbackUrl: "/"})}>Logout</button>
                         </>
                     ) : (
                         <Link href='/login' className={`${pathName === '/login' && styles.active}`}>
                             Login
                         </Link>
                     )}
+                    {session?<div className={styles.imgContainer}>
+                        <Image src={session.user.image?session.user.image:"/noavatar.png"} alt="" className={styles.img} fill />
+                    </div> : "" }
                 </div>
+                
                 <Image 
                     src="/menu.png" 
                     alt="" 
@@ -53,7 +58,7 @@ export default function Navbar() {
                     height={30} 
                     onClick={() => setOpen(prev => !prev)} 
                     className={styles.navMenu} 
-                />
+                />                
             </div>
             {open && 
                 <div className={`${styles.navlink_small_screen}`}>

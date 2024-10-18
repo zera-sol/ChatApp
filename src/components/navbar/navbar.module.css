@@ -36,6 +36,15 @@
 .navlink_small_screen{
     display: none;
 }
+.imgContainer{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.img{
+    object-fit: cover;
+}
 
 
 @media (max-width: 751px){

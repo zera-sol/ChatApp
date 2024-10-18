@@ -1,0 +1,17 @@
+.container{
+    margin-top:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wrapper{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    border-radius: 5px;
+  }
+  
+  
