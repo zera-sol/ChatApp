@@ -12,10 +12,10 @@ const LoginPage = () => {
       <h1 className={styles.title}>Login</h1>      
       <LoginForm />
       <div className={styles.loginBySocialMedia}>
-        <button onClick={() => signIn('github')} className={styles.btn}>
+        <button onClick={() => signIn('github',  { callbackUrl: '/' })} className={styles.btn}>
             <FaGithub className={styles.icon}/>Sign in with GitHub
         </button>
-        <button onClick={() => signIn('google')} className={styles.btn}>
+        <button onClick={() => signIn('google',  { callbackUrl: '/' })} className={styles.btn}>
             <FcGoogle className={styles.icon}/> Sign in with Google
         </button> 
       </div>     

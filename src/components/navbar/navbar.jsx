@@ -50,15 +50,19 @@ export default function Navbar() {
                         <Image src={session.user.image?session.user.image:"/noavatar.png"} alt="" className={styles.img} fill />
                     </div> : "" }
                 </div>
-                
-                <Image 
-                    src="/menu.png" 
-                    alt="" 
-                    width={30} 
-                    height={30} 
-                    onClick={() => setOpen(prev => !prev)} 
-                    className={styles.navMenu} 
-                />                
+                {session?
+                <div className={styles.imgContainerSmallScreen}>
+                        <Image src={session.user.image?session.user.image:"/noavatar.png"} alt="" className={styles.imgSmallScreen} fill />
+                </div> : "" }
+                <div className={styles.imgMenuContainer}>
+                    <Image 
+                        src="/menu.png" 
+                        alt="" 
+                        fill
+                        onClick={() => setOpen(prev => !prev)} 
+                        className={styles.navMenu} 
+                    /> 
+                </div>               
             </div>
             {open && 
                 <div className={`${styles.navlink_small_screen}`}>
