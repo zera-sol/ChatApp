@@ -1,0 +1,87 @@
+.container{ 
+    height: calc(100vh - 250px);   
+    overflow-y: scroll;
+}
+.user{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+.userImage{
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+.pp{
+    object-fit: cover;
+    border-radius: 50%;
+}
+.userDetail p{
+    display: flex;
+    gap: 20px;
+}
+.btnDelete{
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+}
+.confirmDelete{
+   
+    display: none;
+}
+.btns{
+    display: flex;
+    gap: 40px;
+}
+.btnYes, 
+.btnNo{
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+.active{
+    position: absolute;
+    width: 500px;
+    padding:50px 20px;
+    background-color: rgb(220, 54, 54);
+    color: white;
+    bottom: 0;
+    left: 400px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.success{
+    background-color: rgb(64, 140, 64);
+}
+.error{
+    background-color: rgb(188, 73, 73);
+}
+.success p,
+.error p{
+    color: white;
+    font-size: 1.4rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.closeIcon{
+    font-size: 2.rem;
+    padding:0 10px;
+    font-weight: bold;
+    color: white;
+    background-color: inherit;
+    position: absolute;
+    top: 10px;
+    right:10px ;
+    border: none;
+}
+.closeIcon:hover{
+    cursor: pointer;
+    border: 1px solid rgb(205, 175, 175);
+}

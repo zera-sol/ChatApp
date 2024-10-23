@@ -52,7 +52,6 @@ const handleSubmit = async (e) => {
     setError('An error occurred!');
   }
 }
-  useEffect(() => {}, []);
   
 
   return (

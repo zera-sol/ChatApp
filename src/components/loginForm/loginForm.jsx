@@ -20,7 +20,7 @@ const LoginForm = () => {
     });
 
     if (res?.error) {
-      alert('Login failed! Check your credentials.');
+      alert(res.error);
     } else {
       alert('Login successful!');
       router.push('/')

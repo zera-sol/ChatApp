@@ -2,7 +2,8 @@
 const nextConfig = {
     images: {
         domains: ['avatars.githubusercontent.com',
-                  'lh3.googleusercontent.com'
+                  'lh3.googleusercontent.com',
+                  'res.cloudinary.com'
         ], 
       },
     reactStrictMode: true,
@@ -12,6 +13,7 @@ const nextConfig = {
       GITHUB_CLIENT_SECRET: process.env.GITHUB_SECRET,
       GOOGLE_CLIENT_ID: process.env.GOOGLE_ID,
       GOOGLE_CLIENT_SECRET: process.env.GOOGLE_SECRET,
+      NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     },
   };
   

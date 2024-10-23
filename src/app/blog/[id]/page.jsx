@@ -11,7 +11,7 @@ const getData = async (id) => {
       });
   
       if (!response.ok) {
-        throw new Error("Something went wrong!");
+        throw new Error();
       }
   
       return await response.json();
@@ -20,6 +20,22 @@ const getData = async (id) => {
       return []; 
     }
   };
+
+const getUser = async (id) => {
+    try {
+        const res = await fetch(`http://localhost:3000/api/auth/register/${id}`,{
+            method: "GET"
+        })
+        const data = await res.json()
+        if(!res.ok){
+            throw new Error(data.error)
+        }
+        return data;
+    } catch (error) {
+        console.error(error)
+        return [];
+    }
+}
   
  export const generateMetadata = async ({params}) => {
     const post = await getData(params.id);
@@ -31,12 +47,13 @@ const getData = async (id) => {
  
 export default async function SingleBlogPage({params}) {
     const post = await getData(params.id)
+    const user = await getUser(post.userId)
     
         return (
             <div className={styles.container}>       
                 <div className={styles.imgContainer}>
                     <Image
-                        src='/post.jpg'
+                        src={post.img?post.img:"/post2.webp"}
                         alt=""
                         fill /* Allows the image to fill its container */
                         objectFit="cover" /* Ensures the image covers the container */
@@ -48,7 +65,7 @@ export default async function SingleBlogPage({params}) {
                     <div className={styles.detail}>    
                         <Image 
                             className={styles.avatar}
-                            src='/post2.webp' 
+                            src={user.img? user.img: "/noavatar.png"} 
                             alt='' 
                             height={50}
                             width={50}

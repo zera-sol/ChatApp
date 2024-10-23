@@ -1,0 +1,22 @@
+.container{    
+    height: calc(100vh - 250px);
+    overflow-y: scroll;
+    padding: 0 10px ;
+}
+.post{
+    margin-bottom: 20px;
+    height: 50px;
+    overflow: hidden;
+    padding: 5px 20px;
+}
+.post:nth-child(odd){
+    background-color: var(--bgSoft);
+}
+.post:nth-child(even){
+    background-color: #4b4a55;
+}
+.post a{
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}

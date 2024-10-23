@@ -30,7 +30,7 @@ export default function Blogpage() {
     getData().then((data) => {
       setPosts(data);
     });
-  })
+  }, [])
   return (
     <div className={styles.container}>
       {posts.map((post) => (

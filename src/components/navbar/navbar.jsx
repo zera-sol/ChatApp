@@ -13,7 +13,7 @@ export default function Navbar() {
     const pathName = usePathname();
     const { data: session } = useSession(); // Get session data
     console.log(session)
-    const isAdmin = session?.user?.role === 'admin'; // Example: check if user is admin
+    const isAdmin = session?.user?.isAdmin; // Example: check if user is admin
 
     const links = [
         { title: 'Home', path: '/' },

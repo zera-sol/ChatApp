@@ -29,6 +29,36 @@ a{
     flex-direction: column;
     justify-content: space-between;
 }
+
+/* Customize the width of the scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+  /* Customize the scrollbar track (the background of the scrollbar) */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+  
+  /* Customize the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 10px;
+    border: 2px solid transparent; /* Add padding around the thumb */
+  }
+  
+  /* Change the color of the thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+  .error{
+    color: red;
+    font-size: 1.8rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
 @media (min-width: 1025px) {
     .container{
         width:1024px;

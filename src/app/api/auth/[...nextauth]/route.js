@@ -25,6 +25,7 @@ const handler = NextAuth({
       },
       async authorize(credentials) {
         // Look for user in the database using email
+        await connectoDb()
         const user = await User.findOne({ email: credentials.email });
         
         if (!user) {
@@ -45,7 +46,6 @@ const handler = NextAuth({
   ],
   callbacks: {
     async signIn({user, account, profile}) {
-      console.log({user, account, profile});
       //if the user logged in with github
       if(account.provider === "github"){
         try {
@@ -110,6 +110,7 @@ const handler = NextAuth({
         token.username = dbUser.username;
         token.image = dbUser.img;
         token.email = dbUser.email;
+        token.isAdmin = dbUser.isAdmin;
       }
 
       return token; // Return the token with updated user data
@@ -119,7 +120,7 @@ const handler = NextAuth({
       session.user.username = token.username; // Set username in session
       session.user.image = token.image; // Set profile image in session
       session.user.email = token.email; // Set email in session
-
+      session.user.isAdmin = token.isAdmin; // Set the role of the user in session
       return session;  // Return the session with user data
     },
   },
@@ -132,20 +133,3 @@ const handler = NextAuth({
 
 export { handler as GET, handler as POST };
 
-
-// // app/api/auth/[...nextauth].js
-// import NextAuth from "next-auth";
-// import GithubProvider from "next-auth/providers/github";
-
-// export default NextAuth({
-//   providers: [
-//     GithubProvider({
-//       clientId: process.env.GITHUB_ID,
-//       clientSecret: process.env.GITHUB_SECRET,
-//     }),
-//   ],
-//   pages: {
-//     signIn: '/login', // Customize the sign-in page path
-//   },
-//   debug: true,
-// });
