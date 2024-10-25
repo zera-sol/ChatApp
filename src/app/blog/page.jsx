@@ -2,12 +2,13 @@
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
 import {useState, useEffect} from "react";
+import { url } from "@/lib/url";
 
 // Fetch data from the API
 
 const getData = async () => {
   try {
-    const response = await fetch("http://localhost:3000/api/blog", {
+    const response = await fetch(`${url}/api/blog`, {
       method: "GET",
       catch: 'no-store'
     })

@@ -3,6 +3,7 @@ import { FaUpload } from "react-icons/fa"
 import styles from "./adminAddPost.module.css"
 import { useState } from "react"
 import { useSession } from "next-auth/react"; 
+import { url } from "@/lib/url";
 
 export default function AdminAddPost() {
     const [title, setTitle] = useState("")
@@ -26,7 +27,7 @@ export default function AdminAddPost() {
        
        setLoading(true)
        try {
-        const res = await fetch("http://localhost:3000/api/blog", {
+        const res = await fetch(`${url}/api/blog`, {
             method: "POST",
             body:formData,
         })

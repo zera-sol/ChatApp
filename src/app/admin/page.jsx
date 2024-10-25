@@ -5,10 +5,11 @@ import AdminAddPost from '@/components/admin/adminPosts/adminAddPost';
 import AdminListUsers from '@/components/admin/adminUsers/adminListUsers';
 import AdminAddUsers from '@/components/admin/adminUsers/adminAddUsers';
 import { useEffect, useState } from 'react';
+import { url } from '@/lib/url';
     
 const getUser = async () => {
     try {
-     const res = await fetch('http://localhost:3000/api/users')
+     const res = await fetch(`${url}/api/users`)
   
      if(!res.ok){
          const errMessage = await res.json();
@@ -23,7 +24,7 @@ const getUser = async () => {
  }
  const getPost = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/blog")
+        const res = await fetch(`${url}/api/blog`)
         const data = await res.json();
         if (!res.ok) {
             throw new Error(data.error);

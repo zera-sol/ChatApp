@@ -4,6 +4,7 @@ import styles from "./registerForm.module.css"
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { url } from "@/lib/url";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -29,7 +30,7 @@ const handleSubmit = async (e) => {
   console.log(formData)
 
   try {
-    const res = await fetch('http://localhost:3000/api/auth/register', {
+    const res = await fetch(`${url}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

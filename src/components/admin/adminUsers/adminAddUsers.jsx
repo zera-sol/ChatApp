@@ -2,6 +2,7 @@
 import styles from "./adminAddUser.module.css";
 import { FaUpload } from 'react-icons/fa';
 import { useState } from "react";
+import { url } from "@/lib/url";
 
 export default function AdminAddUsers() {
     const [username, setUsername] = useState('');
@@ -35,7 +36,7 @@ export default function AdminAddUsers() {
         setLoading(true); // Set loading to true
 
         try {
-            const res = await fetch("http://localhost:3000/api/auth/register", {
+            const res = await fetch(`${url}/api/auth/register`, {
                 method: 'POST',
                 body: formData, // Send the FormData
             });

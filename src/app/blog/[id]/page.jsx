@@ -1,11 +1,12 @@
 import PostUser from '@/components/postUser/postUser';
 import styles from './singlePost.module.css';
 import Image from 'next/image';
+import { url } from '@/lib/url';
 
 // Fetch data from the API
 const getData = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/blog/${id}`, {
+      const response = await fetch(`${url}/api/blog/${id}`, {
         method: "GET",
         catch: 'no-store'
       });
@@ -23,7 +24,7 @@ const getData = async (id) => {
 
 const getUser = async (id) => {
     try {
-        const res = await fetch(`http://localhost:3000/api/auth/register/${id}`,{
+        const res = await fetch(`${url}/api/auth/register/${id}`,{
             method: "GET"
         })
         const data = await res.json()
