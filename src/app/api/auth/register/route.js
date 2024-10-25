@@ -2,8 +2,6 @@ import { User } from "@/lib/models";
 import { connectoDb } from "@/lib/utils";
 import bcrypt from "bcryptjs";
 import cloudinary from "@/lib/cloudinary";
-import { Readable } from "stream"; // To handle stream for buffer
-import { Promise } from "mongoose";
 
 export async function POST(req) {
     try {

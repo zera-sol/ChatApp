@@ -1,23 +1,6 @@
 import { Post } from "@/lib/models";
 import { connectoDb } from "@/lib/utils";
-import {Readable} from "stream"
 import cloudinary from "@/lib/cloudinary";
-import multer from "multer";
-import multerStorageCloudinary from "multer-storage-cloudinary";
-
-const storage = new multerStorageCloudinary({
-    cloudinary: cloudinary,
-    folder: "zeraNext_users",
-});
-
-const upload = multer({ storage: storage });
-
-export const config = {
-    api: {
-        bodyParser: false, // Disallow Next.js body parsing
-    },
-};
-
 
 export const GET = async (req) => {
     try {
