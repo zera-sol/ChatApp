@@ -18,6 +18,9 @@
   .img{
     object-fit: cover;
   }
+  .bottom{
+    height: 300px;
+  }
   
   .date{
     font-size: 12px;
@@ -29,6 +32,8 @@
     width: 90%;
     font-size: 24px;
     margin-bottom: 8px;
+    height: 80px;
+    overflow: hidden;
   }
   
   .desc{
@@ -36,6 +41,8 @@
     margin-bottom: 8px;
     font-weight: 300;
     color: gray;
+    height: 150px;
+    overflow: hidden;
   }
   
   .link{
