@@ -12,8 +12,7 @@ export default function Navbar() {
     const [open, setOpen] = useState(false);
     const pathName = usePathname();
     const { data: session } = useSession(); // Get session data
-    console.log(session)
-    const isAdmin = session?.user?.isAdmin; // Example: check if user is admin
+    const isAdmin = session?.user?.isAdmin; 
 
     const links = [
         { title: 'Home', path: '/' },
@@ -21,6 +20,11 @@ export default function Navbar() {
         { title: 'Contact', path: '/contact' },
         { title: 'Blog', path: '/blog' },
     ];
+
+    const handleLogout = () => {
+        sessionStorage.clear(); 
+        window.location.reload(); 
+      };
 
     return (
         <div>
@@ -78,7 +82,7 @@ export default function Navbar() {
                                     Admin
                                 </Link>
                             )}
-                            <button className={styles.logoutButton}>Logout</button>
+                            <button className={styles.logoutButton} onClick={handleLogout}>Logout</button>
                         </>
                     ) : (
                         <Link href='/login' className={`${pathName === '/login' && styles.active}`}>
