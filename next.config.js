@@ -8,7 +8,7 @@ const nextConfig = {
       },
     reactStrictMode: true,
     env: {
-      NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
       GITHUB_CLIENT_ID: process.env.GITHUB_ID,
       GITHUB_CLIENT_SECRET: process.env.GITHUB_SECRET,
       GOOGLE_CLIENT_ID: process.env.GOOGLE_ID,

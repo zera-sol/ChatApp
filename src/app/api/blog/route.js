@@ -35,25 +35,15 @@ export const POST = async (req) => {
         let imageUrl = null;
         // If an image is uploaded, upload it to Cloudinary
         if (img) {
-            const buffer = Buffer.from(await img.arrayBuffer()); // Convert the img to Buffer
-
-            // Convert the buffer into a readable stream for Cloudinary
-            const stream = Readable.from(buffer);
-            imageUrl = await new Promise((resolve, reject) => {
-                const uploadStream = cloudinary.uploader.upload_stream(
-                    {
-                        folder: "zeraNext_users", // Adjust the folder name as needed
-                    },
-                    (error, result) => {
-                        if (error) {
-                            return reject(new Error("Image upload failed"));
-                        }
-                        resolve(result.secure_url); // Resolve the URL after successful upload
-                    }
-                );
-                stream.pipe(uploadStream); // Pipe the buffer stream to Cloudinary
+            const buffer = Buffer.from(await img.arrayBuffer()); // Convert img to Buffer
+            imageUrl = await cloudinary.uploader.upload_stream({
+                folder: "zeraNext_users"
+            }, buffer).then(result => result.secure_url)
+            .catch(err => {
+                throw new Error(err.message);
             });
         }
+        
         const newPost = await new Post({
             title,
             desc,
