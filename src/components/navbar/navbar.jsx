@@ -7,7 +7,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react"; // Import useSession
 import { signOut } from 'next-auth/react';
-
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const pathName = usePathname();
@@ -22,6 +21,7 @@ export default function Navbar() {
     ];
 
     const handleLogout = () => {
+        signOut({callbackUrl: "/"})
         sessionStorage.clear(); 
         window.location.reload(); 
       };
@@ -39,11 +39,11 @@ export default function Navbar() {
                     {session ? (
                         <>
                             {isAdmin && (
-                                <Link href='/admin' className={`${pathName === '/admin' && styles.active}`}>
+                                <Link href='/admin' className={`${pathName === '/admin' && styles.active}`} >
                                     Admin
                                 </Link>
                             )}
-                            <button className={styles.logoutButton} onClick={() => signOut({callbackUrl: "/"})}>Logout</button>
+                            <button className={styles.logoutButton} onClick={handleLogout}>Logout</button>
                         </>
                     ) : (
                         <Link href='/login' className={`${pathName === '/login' && styles.active}`}>
