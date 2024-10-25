@@ -3,6 +3,7 @@ import { connectoDb } from "@/lib/utils";
 import bcrypt from "bcryptjs";
 import cloudinary from "@/lib/cloudinary";
 import { Readable } from "stream"; // To handle stream for buffer
+import { Promise } from "mongoose";
 
 export async function POST(req) {
     try {
@@ -36,17 +37,21 @@ export async function POST(req) {
         // Hash the password before saving the user
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        let imageUrl = null;
-        // If an image is uploaded, upload it to Cloudinary
-        if (img) {
-            const buffer = Buffer.from(await img.arrayBuffer()); // Convert img to Buffer
-            imageUrl = await cloudinary.uploader.upload_stream({
-                folder: "zeraNext_users"
-            }, buffer).then(result => result.secure_url)
-            .catch(err => {
-                throw new Error(err.message);
-            });
-        }        
+        let imageUrl = '';
+         if (img) {
+             const buffer = Buffer.from(await img.arrayBuffer());
+             
+             // Convert buffer to base64 format for upload
+             const base64Image = `data:${img.type};base64,${buffer.toString('base64')}`;
+ 
+             // Upload to Cloudinary
+             const result = await cloudinary.uploader.upload(base64Image, {
+                 folder: 'zeraNext_users',
+                 resource_type: 'image', 
+             });
+ 
+             imageUrl = result.secure_url;
+         }
         // Create and save the new user
         const newUser = new User({
             username,

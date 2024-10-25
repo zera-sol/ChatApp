@@ -2,6 +2,22 @@ import { Post } from "@/lib/models";
 import { connectoDb } from "@/lib/utils";
 import {Readable} from "stream"
 import cloudinary from "@/lib/cloudinary";
+import multer from "multer";
+import multerStorageCloudinary from "multer-storage-cloudinary";
+
+const storage = new multerStorageCloudinary({
+    cloudinary: cloudinary,
+    folder: "zeraNext_users",
+});
+
+const upload = multer({ storage: storage });
+
+export const config = {
+    api: {
+        bodyParser: false, // Disallow Next.js body parsing
+    },
+};
+
 
 export const GET = async (req) => {
     try {
@@ -20,6 +36,7 @@ export const GET = async (req) => {
 };
 
 export const POST = async (req) => {
+
     const formData = await req.formData()
 
     const title = formData.get('title')
@@ -30,20 +47,22 @@ export const POST = async (req) => {
 
     try {
         await connectoDb()
-        // upload image to cloudinary
-        
-        let imageUrl = null;
-        // If an image is uploaded, upload it to Cloudinary
-        if (img) {
-            const buffer = Buffer.from(await img.arrayBuffer()); // Convert img to Buffer
-            imageUrl = await cloudinary.uploader.upload_stream({
-                folder: "zeraNext_users"
-            }, buffer).then(result => result.secure_url)
-            .catch(err => {
-                throw new Error(err.message);
-            });
-        }
-        
+         // Upload image to Cloudinary
+         let imageUrl = '';
+         if (img) {
+             const buffer = Buffer.from(await img.arrayBuffer());
+             
+             // Convert buffer to base64 format for upload
+             const base64Image = `data:${img.type};base64,${buffer.toString('base64')}`;
+ 
+             // Upload to Cloudinary
+             const result = await cloudinary.uploader.upload(base64Image, {
+                 folder: 'zeraNext_users',
+                 resource_type: 'image', 
+             });
+ 
+             imageUrl = result.secure_url;
+         }
         const newPost = await new Post({
             title,
             desc,
